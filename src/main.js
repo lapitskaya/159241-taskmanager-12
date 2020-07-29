@@ -360,7 +360,7 @@ const createBoardLoadMoreBtnTemplate = () => {
 };
 
 const render = (container, template, place) => {
-  container.insertAdjacentElement(place, template);
+  container.insertAdjacentHTML(place, template);
 };
 
 const siteMainElement = document.querySelector(`.main`);
