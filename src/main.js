@@ -359,29 +359,29 @@ const createBoardLoadMoreBtnTemplate = () => {
   return (`<button class="load-more" type="button">load more</button>`);
 };
 
-const render = (container, template, place) => {
+const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
 
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
-render(siteHeaderElement, createSiteMenuTemplate(), `beforeend`);
-render(siteMainElement, createSiteFilterTemplate(), `beforeend`);
-render(siteMainElement, createSiteBoardTemplate(), `beforeend`);
+render(siteHeaderElement, createSiteMenuTemplate());
+render(siteMainElement, createSiteFilterTemplate());
+render(siteMainElement, createSiteBoardTemplate());
 
 const boardElement = siteMainElement.querySelector(`.board`);
 
-render(boardElement, createBoardSortTemplate(), `beforeend`);
-render(boardElement, createBoardTasksTemplate(), `beforeend`);
+render(boardElement, createBoardSortTemplate());
+render(boardElement, createBoardTasksTemplate());
 
 const boardTasksElement = boardElement.querySelector(`.board__tasks`);
 
 for (let i = 0; i < TASK_COUNT; i++) {
-  render(boardTasksElement, createTaskCardTemplate(), `beforeend`);
+  render(boardTasksElement, createTaskCardTemplate());
 }
 
 const taskCardElement = boardTasksElement.querySelector(`.card`);
 
 render(taskCardElement, createCardFormTemplate(), `beforebegin`);
-render(boardElement, createBoardLoadMoreBtnTemplate(), `beforeend`);
+render(boardElement, createBoardLoadMoreBtnTemplate());
